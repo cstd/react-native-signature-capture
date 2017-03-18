@@ -24,6 +24,7 @@ public class RSSignatureCaptureViewManager extends ViewGroupManager<RSSignatureC
 
 	public static final int COMMAND_SAVE_IMAGE = 1;
 	public static final int COMMAND_RESET_IMAGE = 2;
+	public static final int COMMAND_RESET_VIEWMODE = 3;
 
 	private RSSignatureCaptureContextModule mContextModule;
 
@@ -84,7 +85,10 @@ public class RSSignatureCaptureViewManager extends ViewGroupManager<RSSignatureC
 				"saveImage",
 				COMMAND_SAVE_IMAGE,
 				"resetImage",
-				COMMAND_RESET_IMAGE);
+				COMMAND_RESET_IMAGE,
+				"resetViewMode",
+				COMMAND_RESET_VIEWMODE
+				);
 	}
 
 	@Override
@@ -103,6 +107,10 @@ public class RSSignatureCaptureViewManager extends ViewGroupManager<RSSignatureC
 				view.reset();
 				return;
 			}
+			case COMMAND_RESET_VIEWMODE: {
+				view.resetViewMode();
+				return;
+			}
 
 			default:
 				throw new IllegalArgumentException(String.format(
@@ -111,6 +119,5 @@ public class RSSignatureCaptureViewManager extends ViewGroupManager<RSSignatureC
 						getClass().getSimpleName()));
 		}
 	}
-
 
 }

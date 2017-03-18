@@ -199,6 +199,14 @@ public class RSSignatureCaptureMainView extends LinearLayout implements OnClickL
     return Bitmap.createScaledBitmap(image, width, height, true);
   }
 
+  public void resetViewMode() {
+      if(mOriginalOrientation == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+          this.setViewMode("landscape");
+      }
+      else {
+          this.setViewMode("portrait");
+      }
+  }
 
   public void reset() {
     if (this.signatureView != null) {
